@@ -1,0 +1,24 @@
+/* PASSWORDS: mobilePass */
+INSERT INTO oauth_client_details (client_id, client_secret, web_server_redirect_uri, scope, access_token_validity, refresh_token_validity, resource_ids, authorized_grant_types, additional_information) VALUES ('mobile', '{bcrypt}$2y$12$D3e8SbwJiGc0IG.P7e56Nuht2E19h5k5eQ8jnJvpNDrU9pNuuMY4C', 'http://localhost:8080/code', 'READ,WRITE', '3600', '10000', '', 'authorization_code,password,refresh_token,implicit', '{}');
+
+INSERT INTO role (id, NAME) values (1, 'ROLE_ADMIN'),(2, 'ROLE_USER');
+
+/* PASSWORDS: androidPass, webPass */
+insert into user (id, username,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked) VALUES ('1', 'usuariAndroid','{bcrypt}$2y$12$Z0azqNbcznmvDVdSCT2l1OrVG.kt55EeG2WAhWyqClGHUAWO8qcbK', 'android@android.com', '1', '1', '1', '1');
+insert into user (id, username,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked) VALUES ('2', 'usuariWeb','{bcrypt}$2y$12$amQSsK0sEto2f7xnn8Nu.OJL8qH9bM28rbBf/ktFLdsYgL5jBzo8y', 'web@web.com', '1', '1', '1', '1');
+
+INSERT INTO ROLE_USER (ROLE_ID, USER_ID)
+    VALUES
+    (1, 2) /* web-admin */,
+    (2, 1) /* android-user */ ;
+    
+   
+select * from role_user;
+select * from role;
+select * from user;
+select * from oauth_client_details;
+   
+delete from role_user;
+delete from role;
+delete from user;
+delete from oauth_client_details;
