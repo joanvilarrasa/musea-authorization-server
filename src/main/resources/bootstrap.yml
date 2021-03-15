@@ -1,0 +1,11 @@
+spring:
+
+  application:
+    name: authorization
+    
+  cloud:
+    config:
+      uri: http://localhost:8888
+      username: 'musea-config-server-user'
+      password: 'JUF`33{7g$D"ft~Y'
+      
