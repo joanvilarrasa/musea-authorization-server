@@ -5,7 +5,7 @@ spring:
     
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: https://musea-config-server.herokuapp.com
       username: 'musea-config-server-user'
       password: 'JUF`33{7g$D"ft~Y'
       
