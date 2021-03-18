@@ -32,7 +32,7 @@ create table if not exists  user (
   credentialsNonExpired tinyint(4) not null,
   accountNonLocked tinyint(4) not null,
   primary key (id),
-  unique key username (username)
+  unique key email (email)
 ) engine=innodb ;
 
 create table if not exists role_user (
