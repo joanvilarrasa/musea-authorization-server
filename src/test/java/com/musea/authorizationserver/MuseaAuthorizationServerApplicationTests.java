@@ -102,7 +102,8 @@ class MuseaAuthorizationServerApplicationTests {
     	ResponseEntity<Object> response = template.withBasicAuth("somethingwrong", "mobilePass")
     			.postForEntity("/oauth/token", request , Object.class);
 
-        assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+        
     }
 
 }
