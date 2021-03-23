@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -37,10 +38,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-			.antMatchers(HttpMethod.POST,"/signup/**").permitAll()
-			.anyRequest()
-			.authenticated();
-		http.csrf().disable();
+		http.csrf().disable()
+			.authorizeRequests()
+			.antMatchers(HttpMethod.POST,"/signup/**")
+			.permitAll()
+			.and()
+			.httpBasic();
 	}
 }
